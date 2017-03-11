@@ -1,0 +1,22 @@
+# https://github.com/vegasbrianc/docker-LAMP/
+# docker-compose up -d
+# http://localhost/phpinfo.php #environment's phpinfo()
+# docker-compose ps # Verify
+# docker-compose logs web # Docker logs;
+# ls-la var/log/apache2 # Apache logs (via volume mount)
+# docker-compose run web /var/www/html/vendor/bin/phpunit --group=foo # Do things
+
+
+web:
+  image: eboraas/apache-php
+  #image: tutum/apache-php
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - ./var/log/apache2:/var/log/apache2
+    - .:/var/www/html
+  command: sh /var/www/html/start.sh
+  # Original COMMAND.
+  #command: ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+    
