@@ -1,0 +1,21 @@
+# https://github.com/vegasbrianc/docker-LAMP/
+# docker-compose up -d
+# http://localhost/phpinfo.php shows the environment's phpinfo()
+# docker-compose ps verifies
+# docker-compose logs web for Docker logs; see the volume mount for Apache logs
+# docker-compose run web /var/www/html/vendor/bin/phpunit --group=validate runs the testsuite
+
+
+web:
+  image: eboraas/apache-php
+  #image: tutum/apache-php
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - ./var/log/apache2:/var/log/apache2
+    - .:/var/www/html
+  command: sh /var/www/html/start.sh
+  # Original COMMAND.
+  #command: ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+    
