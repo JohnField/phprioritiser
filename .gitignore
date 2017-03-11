@@ -1,4 +1,5 @@
-# Applkciation
+# Application
+bin
 vendor
 
 # Docker
@@ -8,4 +9,7 @@ var
 .buildpath
 .project
 .settings
+
+# Tooling
+.php_cs.cache
 

@@ -1,12 +1,26 @@
 {
+	"require": {
+		"silex/silex": "~2.0"
+	},
 	"require-dev": {
-		"silex/silex": "~2.0",
-		"phpunit/phpunit": "4.3.*",
-		"symfony/var-dumper": "^3.2"
+		"phpunit/phpunit": "~5.0",
+		"symfony/var-dumper": "^3.2",
+		"bruli/php-git-hooks": "~4.1"
 	},
 	"autoload": {
 		"psr-4": {
 			"PHPrioritiser\\": "src/"
 		}
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"PhpGitHooks\\Infrastructure\\Composer\\ConfiguratorScript::buildConfig"
+		],
+		"post-update-cmd": [
+			"PhpGitHooks\\Infrastructure\\Composer\\ConfiguratorScript::buildConfig"
+		]
+	},
+	"config": {
+		"bin-dir": "bin"
 	}
 }

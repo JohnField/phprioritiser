@@ -4,16 +4,15 @@ namespace PHPrioritiser;
 
 /**
  * PHPrioritiser
- * 
+ *
  * @author John Field <John.Field@gMail.com>
  */
 class PHPrioritiser
 {
-
     /**
      * Setter.
      *
-     * @param mixed $foo            
+     * @param mixed $foo
      */
     public function setFoo($foo)
     {
