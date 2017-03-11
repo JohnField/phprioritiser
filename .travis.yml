@@ -1,0 +1,18 @@
+# Can also verify locally via Docker
+# https://docs.travis-ci.com/user/common-build-problems/#Troubleshooting-Locally-in-a-Docker-Image
+
+language: php
+
+sudo: false
+
+php:
+   - 5.6
+   - 7.0
+   - 7.1
+   - hhvm
+
+before_script:
+   - composer install
+
+script:
+- phpunit --configuration phpunit.xml

@@ -1,9 +1,10 @@
 # https://github.com/vegasbrianc/docker-LAMP/
 # docker-compose up -d
-# http://localhost/phpinfo.php shows the environment's phpinfo()
-# docker-compose ps verifies
-# docker-compose logs web for Docker logs; see the volume mount for Apache logs
-# docker-compose run web /var/www/html/vendor/bin/phpunit --group=validate runs the testsuite
+# http://localhost/phpinfo.php #environment's phpinfo()
+# docker-compose ps # Verify
+# docker-compose logs web # Docker logs;
+# ls-la var/log/apache2 # Apache logs (via volume mount)
+# docker-compose run web /var/www/html/vendor/bin/phpunit --group=foo # Do things
 
 
 web:
