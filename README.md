@@ -1,5 +1,6 @@
 # phprioritiser
 PHP - based prioritiser
+[![Build Status](https://travis-ci.org/JohnField/phprioritiser.svg?branch=master)](https://travis-ci.org/JohnField/phprioritiser)
 
 ## Overview
 A modern PHP implementation of a prioritisation grid.
