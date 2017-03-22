@@ -7,16 +7,28 @@
 # docker-compose run web /var/www/html/vendor/bin/phpunit --group=foo # Do things
 
 
-web:
-  image: eboraas/apache-php
-  #image: tutum/apache-php
+webserver:
+  build: webserver/
   ports:
     - "80:80"
     - "443:443"
   volumes:
     - ./var/log/apache2:/var/log/apache2
     - .:/var/www/html
-  command: sh /var/www/html/start.sh
-  # Original COMMAND.
-  #command: ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+#  command: sh /var/www/html/start.sh
     
+# Wraps https://hub.docker.com/r/google/cloud-sdk/  
+# Refer there for usage, adapting as needed, e.g.
+# $ docker-compose run gcloud-config gcloud auth activate-service-account --key-file /home/service-account-key.json
+# See https://console.cloud.google.com/apis/credentials
+# $ docker-compose run gcloud-config gcloud auth login
+# 
+# $ docker-compose run gcloud-config gcloud app deploy /home/app.yaml --project phprioritiser
+gcloud-config:
+  image: google/cloud-sdk
+  volumes:
+# Make repository's files available to gcloud
+    - .:/home/
+  command: gcloud auth activate-service-account --key-file /home/service-account-key.json
+#gcloud config set project phprioritiser
+  

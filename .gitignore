@@ -13,3 +13,5 @@ var
 # Tooling
 .php_cs.cache
 
+# Google Cloud
+/service-account-key.json
