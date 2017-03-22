@@ -21,9 +21,8 @@ webserver:
 # Refer there for usage, adapting as needed, e.g.
 # $ docker-compose run gcloud-config gcloud auth activate-service-account --key-file /home/service-account-key.json
 # See https://console.cloud.google.com/apis/credentials
-# $ docker-compose run gcloud-config gcloud auth login
-# 
 # $ docker-compose run gcloud-config gcloud app deploy /home/app.yaml --project phprioritiser
+# Or, run bash and perform manually
 gcloud-config:
   image: google/cloud-sdk
   volumes:
